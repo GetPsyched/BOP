@@ -9,8 +9,7 @@ int main()
   for(int i=0 ; i < num ; i++)
   {
     printf("Enter element #%d --> ", i + 1);
-    scanf("%d", &temp);
-    array[i] = temp;
+    scanf("%d", &array[i]);
   }
   large = array[0];
   for(int i=1 ; i < num ; i++)

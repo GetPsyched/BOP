@@ -1,42 +1,54 @@
 #include<stdio.h>
-
-int max_of_array(int array[], int n, int list[])
+maxfn(int x,int y)
 {
-  int large = array[0], pos;
-  for (int i=1;i<n;i++)
-    if (array[i] > large)
-    {
-      large = array[i];
-      pos = i;
+    int max;
+    if(x>y){
+        max=x;
     }
-  list[0] = large;
-  list[1] = pos;
+    else {
+        max=y;
+    }
+    return max;
 }
-
-int main()
+main()
 {
-  int i,n,sum;
-  printf("Number of students --> ");
-  scanf("%d", &n);
-  int roll[n], phy[n], chem[n], math[n];
-  for(i=0;i<n;i++)
-  {
-    printf("\n");
-    printf("Enter student %ds Roll Number --> ", i+1);
-    scanf("%d", &roll[i]);
-    printf("Enter student %ds Physics marks --> ", i+1);
-    scanf("%d", &phy[i]);
-    printf("Enter student %ds Chemistry marks --> ", i+1);
-    scanf("%d", &chem[i]);
-    printf("Enter student %ds Maths marks --> ", i+1);
-    scanf("%d", &math[i]);
-  }
-  int list[2];
-  max_of_array(phy, n, list);
-  printf("\nHighest Marks:\n");
-  printf("\n(i) Roll Number: %d, Marks: %d", roll[list[1]], list[0]);
-  max_of_array(chem, n, list);
-  printf("\n(ii) Roll Number: %d, Marks: %d", roll[list[1]], list[0]);
-  max_of_array(math, n, list);
-  printf("\n(iii) Roll Number: %d, Marks: %d", roll[list[1]], list[0]);
+    int num,large=0,count=1,i=0,j;                //we can't find the largest if all numbers are less than 0 by using this
+    int temp_large;                             // These are for temporarily storing the larest and smallest number
+    int sec_large_1,sec_large_2;                //sec_large_1 for second largest before largest, sec_large_2 for second largest after largest,
+    int second_large;                            //second_large actually second largest
+    printf("This program calculates second largest number only for positive integers.\n");
+    printf("From how many numbers do you wish to get the second largest number?\n");
+    scanf("%d",&num);
+    int numbers[num];
+    for(i=0;i<num;i++){
+        printf("Enter the number %d\n",count++);
+        scanf("%d",&numbers[i]);
+    }
+    for(i=1;i<num;i++){
+        temp_large=maxfn(numbers[i-1],numbers[i]);
+        if(temp_large>large){
+            large=temp_large;
+        }
+    }
+    printf("\nLargest number: %d\n",large);
+    for(i=0;i<num;i++){
+        if(large==numbers[i]){
+            j=i;
+        }
+        for(i=0;i<(j-1);i++){
+            temp_large=maxfn(numbers[i],numbers[i+1]);
+            if(temp_large>sec_large_1){
+                sec_large_1=temp_large;
+            }
+        }
+        for(i=j+1;i<num-1;i++){
+            temp_large=maxfn(numbers[i],numbers[i+1]);
+            if(temp_large>sec_large_2){
+                sec_large_2=temp_large;
+            }
+        }
+    }
+    second_large=maxfn(sec_large_1,sec_large_2);
+    printf("\nSecond largest number: %d",second_large);
+    return 0;
 }
