@@ -12,24 +12,13 @@ int main()
     scanf("%d", &array[i]);
   }
   large = array[0];
-  for(int i=1 ; i < num ; i++)
-  {
-    if (array[i-1] > array[i])
-      temp = array[i-1];
-    else
-      temp = array[i];
-    if (temp > large)
-      large = temp;
-  }
   small = array[0];
   for(int i=1 ; i < num ; i++)
   {
-    if (array[i-1] > array[i])
-      temp = array[i];
-    else
-      temp = array[i-1];
-    if (temp < small)
-      small = temp;
+    if (array[i] > large)
+      large = array[i];
+    if (array[i] < small)
+      small = array[i];
   }
   printf("\nLarge number is --> %d", large);
   printf("\nSmall number is --> %d", small);
