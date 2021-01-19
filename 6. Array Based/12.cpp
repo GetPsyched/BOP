@@ -5,7 +5,7 @@ int main() {
     scanf("%d", &r);
     printf("Enter the number of columns");
     scanf("%d", &c);
-  
+
 
     printf("Enter elements of 1st matrix:\n");
     for (i = 0; i < r; i++)
@@ -20,7 +20,7 @@ int main() {
             printf("Enter element a%d%d: ", i + 1, j + 1);
             scanf("%d", &b[i][j]);
         }
-        
+
     for (i = 0; i < r; i++)
     {
         for (j = 0; j < c; j++) {
@@ -31,7 +31,7 @@ int main() {
             }
         }
     }
-        
- 
+
+
     return 0;
 }
