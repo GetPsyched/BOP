@@ -5,10 +5,7 @@ int max_of_array(int array[], int n, int list[])
   int large = array[0], pos;
   for (int i=1;i<n;i++)
     if (array[i] > large)
-    {
-      large = array[i];
-      pos = i;
-    }
+    { large = array[i]; pos = i; }
   list[0] = large;
   list[1] = pos;
 }

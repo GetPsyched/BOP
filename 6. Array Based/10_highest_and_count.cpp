@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 int main(){
-    int n, smaller=0, equal=0, large;
+    int n, pos, large;
     printf("Enter the number of elements in the array --> ");
     scanf("%d", &n);
     int array[n];
@@ -11,14 +11,10 @@ int main(){
       scanf("%d", &array[i]);
     }
     large = array[0];
-    for(i=1; i < n; i++)
+    for(int i=1; i < n; i++)
       if(array[i] > large)
-        large = array[i];
+      { large = array[i]; pos = i; }
 
-    for(int i=0; i < n; i++)
-      if(large > array[i]) smaller++;
-      else equal++;
-
-    printf("\nNumber of elements lesser than max value --> %d", smaller);
-    printf("Number of elements lesser than max value --> %d\n", equal);
+    printf("\nNumber of elements before max value --> %d", pos);
+    printf("\nNumber of elements after max value --> %d\n", n - pos - 1);
 }
