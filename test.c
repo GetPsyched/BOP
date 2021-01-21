@@ -33,17 +33,17 @@ print(int *a,int n)
 int main()
 {
     int n1,n2;
-    printf("enter the size of first array");
+    printf("enter the size of first array --> ");
     scanf("%d",&n1);
 
-    printf("enter the size of second array");
+    printf("enter the size of second array --> ");
     scanf("%d",&n2);
 
     int a[n1],b[n2],i;
-    printf("enter the data for first array");
+    printf("enter the data for first array --> ");
     for(i=0;i<n1;i++)
     {
-        printf("enter the value of data-->");
+        printf("enter the value of data --> ");
         scanf("%d",&a[i]);
     }
         printf("enter the data for second array");

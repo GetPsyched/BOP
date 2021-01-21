@@ -10,7 +10,7 @@ int main()
     printf("Enter element #%d --> ", i + 1);
     scanf("%d", &array[i]);
   }
-  for(int i=0; i <= n%2 + n/2 - 1; i++)
+  for(int i=0; i < n%2 + n/2; i++)
     if (i == n/2 && n%2 != 0)
       printf("Middle term --> %d\n", array[i]);
     else
