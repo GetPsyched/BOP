@@ -18,7 +18,7 @@ int main()
                  break;
         default: count[1]++;
       }
-    else
+    else if (s[i] != ' ')
       switch (s[i]) {
         case '0':
         case '1':
