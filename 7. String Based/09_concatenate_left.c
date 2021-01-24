@@ -9,12 +9,10 @@ int main()
   printf("Enter second string --> ");
   gets(y);
   int i, j, temp, n1 = strlen(x), n2 = strlen(y);
-  for(i=n1; i < n1+n2; i++)
-    x[i] = 'z';
-  x[i] = '\0';
   for(i=n1+n2-1; i >= n2; i--)
     x[i] = x[i-n2];
   for(i=0; i < n2; i++)
     x[i] = y[i];
+  x[n1+n2] = '\0';
   printf("\nConcatenated string --> %s\n", x);
 }
