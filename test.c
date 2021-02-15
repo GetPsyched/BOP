@@ -1,62 +1,46 @@
-//Write a program in C to merge two arrays of same size sorted in decending order.
+#include <stdio.h>
+#include <string.h>
 
-#include<stdio.h>
-void swap(int *a,int *b)
+char reverse(char str[])
 {
-    int t;
-    t=a;
-    a=b;
-    b=t;
+  char reverse[100];
+  int len, i, index, wordStart, wordEnd;
 
-}
-void rearrange(int *a,int n)
-{
-    int i,j,t;
-    for(i=0;i<n-1;i++)
+  len   = strlen(str);
+  index = 0;
+
+  wordStart = len - 1;
+  wordEnd   = len - 1;
+
+  while(wordStart > 0)
+  {
+    if(str[wordStart] == ' ')
     {
-        for(j=0;j<n-i-1;j++)
+        i = wordStart + 1;
+        while(i <= wordEnd)
         {
-            if(a[i]<a[i+1])
-                swap(a[i],a[i+1]);
-
+          reverse[index] = str[i];
+          i++;
+          index++;
         }
+        reverse[index++] = ' ';
+        wordEnd = wordStart - 1;
     }
+    wordStart--;
+  }
+  for(i=0; i<=wordEnd; i++)
+  {
+    reverse[index] = str[i];
+    index++;
+  }
+  reverse[index] = '\0';
+  printf("Reversed string --> %s\n", reverse);
 }
-print(int *a,int n)
-{
-    int i;
-    for(i=0;i<n;i++)
-    {
-        printf("%d ",a[i]);
-    }
-}
+
 int main()
 {
-    int n1,n2;
-    printf("enter the size of first array --> ");
-    scanf("%d",&n1);
-
-    printf("enter the size of second array --> ");
-    scanf("%d",&n2);
-
-    int a[n1],b[n2],i;
-    printf("enter the data for first array --> ");
-    for(i=0;i<n1;i++)
-    {
-        printf("enter the value of data --> ");
-        scanf("%d",&a[i]);
-    }
-        printf("enter the data for second array");
-    for(i=0;i<n2;i++)
-    {
-        printf("enter the value of data-->");
-        scanf("%d",&b[i]);
-    }
-
-    int c[n1+n2];
-
-    rearrange(c,n1+n2);
-    print(c,n1+n2);
-
-    return 0;
+  char str[25];
+  printf("Enter a string --> ");
+  gets(str);
+  reverse(str);
 }
