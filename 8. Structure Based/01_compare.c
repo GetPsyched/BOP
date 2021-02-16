@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 struct date
 {
@@ -19,7 +20,9 @@ struct date compare(struct date d1,struct date d2)
     {
       if(d1.d>d2.d) return d1;
       else if(d1.d<d2.d) return d2;
-      else return d1;
+      else printf("\nBoth dates are same");
+        //We shouldn't say d1 is recent when both dates are same
+      exit (0); //To end the program
     }
   }
 }
