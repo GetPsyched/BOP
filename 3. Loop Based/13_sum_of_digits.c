@@ -5,6 +5,8 @@ int main()
   int n, sum = 0;
   printf("Enter n --> ");
   scanf("%d", &n);
+  if(n < 0)
+    n *= -1;
   while (n > 0)
   {
     sum += n%10;
